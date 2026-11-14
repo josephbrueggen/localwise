@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output
+.next/
+out/
+.open-next/
+.wrangler/
+.vercel/
+dist/
+
+# OS and logs
+.DS_Store
+*.log
+
+# Secrets: never commit keys or passwords
+.env
+.env.*
+!.env.example
+.dev.vars
+*.pem
