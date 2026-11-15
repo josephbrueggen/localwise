@@ -19,3 +19,41 @@ dist/
 !.env.example
 .dev.vars
 *.pem
+
+# Customer data must never be committed (see CLAUDE.md). These catch common
+# accidental exports; they are a safety net, not permission to keep data here.
+*.csv
+*.tsv
+*.xlsx
+*.sqlite*
+*.sql
+*.db
+*.dump
+*.sql.gz
+exports/
+backups/
+data/
+supabase/.temp/
+uploads/
+
+# Next.js
+next-env.d.ts
+*.tsbuildinfo
+
+# Local-only tool state
+.claude/settings.local.json
+.impeccable/live/
+.wrangler/
+.dev.vars*
+
+# Kept private on purpose (owner's choice, 2026-11-15): project notes, product
+# docs, AI tool setup and the parked homepage stay on the owner's machine only.
+README.md
+CLAUDE.md
+AGENTS.md
+PRODUCT.md
+docs/
+.claude/
+components/homepage/
+components/RotatingWord.tsx
+components/SiteHeader.tsx

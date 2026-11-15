@@ -1,0 +1,155 @@
+/*
+ * Localwise design tokens
+ *
+ * Mirror of the tokens in the Paper file "Localwise design system"
+ * (https://app.paper.design/file/01M7E2PCQPYS32XJ5RVS2Q5RJ1).
+ * Names match Paper exactly. When one side changes, update the other
+ * (see "Design sync" in CLAUDE.md).
+ *
+ * The shadow and border-width tokens at the bottom are code-only:
+ * Paper has no native token type for them.
+ *
+ * --font-body changed from the Inter placeholder to Atkinson Hyperlegible Next
+ * in the homepage build (Impeccable check, 2026-11-15).
+ */
+
+:root {
+  /* Neutrals */
+  --color-page: #F7F9FC;
+  --color-surface: #FFFFFF;
+  --color-gray-badge: #F2F4F8;
+  --color-divider: #EEF2F8;
+  --color-border: #DCE3F0;
+  --color-border-strong: #C5D4F3;
+  --color-placeholder: #8A96AD;
+  --color-muted: #4B5A75;
+  --color-body: #22314F;
+
+  /* Navy (ink and dark surfaces) */
+  --color-navy: #14213D;
+  --color-navy-raised: #1B2B4E;
+  --color-navy-active: #22355E;
+  --color-navy-highlight: #26407A;
+  --color-navy-border: #3A4E7A;
+  --color-on-navy: #C9D5EE;
+  --color-on-navy-subtle: #A9B8D6;
+  --color-on-navy-strong: #E3EAF8;
+
+  /* Brand blue */
+  --color-accent: #1F5BD8;
+  --color-accent-hover: #1745A8;
+  --color-tint: #EAF1FF;
+  --color-sky: #7FA6F5;
+  --color-sky-soft: #B9CEF8;
+
+  /* Amber highlight and "idea" panels */
+  --color-amber: #F59E0B;
+  --color-amber-soft: #F2C27A;
+  --color-idea-bg: #FEF6E4;
+  --color-idea-text: #7A4A00;
+  --color-idea-ink: #3E2A0B;
+  --color-idea-body: #5A3F14;
+
+  /* Status */
+  --color-success-bg: #DDF3E6;
+  --color-success: #146C3A;
+  --color-danger: #A12B2B;
+  --color-danger-border: #E8B4B4;
+
+  /* Type */
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", system-ui, sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --text-caption: 13px;
+  --text-small: 14px;
+  --text-ui: 15px;
+  --text-body: 16px;
+  --text-body-lg: 17px;
+  --text-lead: 18px;
+  --text-h6: 19px;
+  --text-lead-lg: 20px;
+  --text-h5: 22px;
+  --text-h4: 26px;
+  --text-h3: 34px;
+  --text-h2: 44px;
+  --text-h1: 60px;
+  --text-display: 66px;
+
+  --leading-caption: 18px;
+  --leading-ui: 22px;
+  --leading-body: 24px;
+  --leading-body-lg: 26px;
+  --leading-lead: 29px;
+  --leading-lead-lg: 31px;
+  --leading-heading: 1.1;
+
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.01em;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.12em;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-22: 88px;
+  --space-24: 96px;
+  --space-36: 144px; /* desktop page gutter */
+
+  /* Radii */
+  --radius-bar: 4px;
+  --radius-badge: 8px;
+  --radius-control: 10px;
+  --radius-button: 12px;
+  --radius-tile: 14px;
+  --radius-panel: 16px;
+  --radius-card: 18px;
+  --radius-card-lg: 20px;
+  --radius-hero: 24px;
+  --radius-full: 999px;
+
+  /* Opacity */
+  --opacity-faint: 12%;
+  --opacity-subtle: 25%;
+  --opacity-soft: 45%;
+  --opacity-glass: 90%;
+
+  /* Layout */
+  --container-form: 440px;
+  --container-prose: 720px;
+  --container-faq: 860px;
+  --container-report: 960px;
+  --container-page: 1200px;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+
+  /* Code-only (no native Paper token type) */
+  --border-width: 1px;
+  --border-width-strong: 2px;
+  --shadow-card: 0 20px 48px rgba(20, 33, 61, 0.08);
+  --shadow-sample: 0 20px 48px rgba(20, 33, 61, 0.10);
+  --shadow-selected: 0 10px 28px rgba(31, 91, 216, 0.12);
+  --shadow-bar: 0 -8px 24px rgba(20, 33, 61, 0.06);
+  --shadow-hero-card: 0 20px 48px rgba(5, 12, 30, 0.4);
+  --shadow-knob: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --focus-ring: 3px solid var(--color-sky);
+}
