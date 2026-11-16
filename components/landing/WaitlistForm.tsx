@@ -43,6 +43,9 @@ export default function WaitlistForm() {
         callback: (t: string) => {
           tokenRef.current = t;
         },
+        "expired-callback": () => {
+          tokenRef.current = "";
+        },
       });
     };
     if (window.turnstile) return render();
@@ -64,6 +67,13 @@ export default function WaitlistForm() {
     setStatus("sending");
     setMessage("");
     try {
+      // The invisible spam check usually finishes within a second or two of
+      // the page loading. If someone is quicker, wait briefly for it.
+      if (TURNSTILE_SITE_KEY) {
+        for (let i = 0; i < 40 && !tokenRef.current; i++) {
+          await new Promise((r) => setTimeout(r, 250));
+        }
+      }
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -81,6 +91,7 @@ export default function WaitlistForm() {
     } catch {
       setStatus("error");
       setMessage("Something went wrong on our side. Please try again in a moment.");
+      tokenRef.current = "";
       if (widgetId.current) window.turnstile?.reset(widgetId.current);
     }
   }
