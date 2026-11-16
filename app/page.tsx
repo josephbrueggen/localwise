@@ -1,6 +1,7 @@
 import { HeroMap } from "@/components/Illustrations";
 import { SiteFooter, TopBar } from "@/components/landing/Chrome";
 import SampleCard from "@/components/landing/SampleCard";
+import RotatingWord from "@/components/landing/RotatingWord";
 import WaitlistForm from "@/components/landing/WaitlistForm";
 
 /* Landing page (Paper: "Localwise landing page" > Landing page). */
@@ -35,7 +36,10 @@ export default function LandingPage() {
               Sign up before February 2027 and it&apos;s free for life
             </p>
             <h1 className="lp-title">
-              Simple, actionable insights for your local <span className="lp-title-accent">shop</span>.
+              <span className="visually-hidden">Simple, actionable insights for your local small business.</span>
+              <span aria-hidden="true">
+                Simple, actionable insights for your local <RotatingWord />
+              </span>
             </h1>
             <p className="lp-lead">
               No intrusive AI. You focus on your small business and Localwise brings you helpful reports along the
