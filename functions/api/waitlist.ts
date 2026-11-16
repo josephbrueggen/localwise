@@ -63,14 +63,19 @@ export async function onRequestPost({ request, env }: Ctx): Promise<Response> {
     return json({ status: "error" }, 500);
   }
 
-  const res = await fetch(`${env.SUPABASE_URL}/rest/v1/waitlist`, {
+  // Works with both Supabase key styles: the newer "secret" keys (sb_secret_…)
+  // go in the apikey header only; legacy service_role JWTs also go in Authorization.
+  const key = env.SUPABASE_SERVICE_ROLE_KEY;
+  const headers: Record<string, string> = {
+    apikey: key,
+    "Content-Type": "application/json",
+    Prefer: "return=minimal",
+  };
+  if (key.startsWith("eyJ")) headers.Authorization = `Bearer ${key}`;
+
+  const res = await fetch(`${env.SUPABASE_URL.replace(/\/+$/, "")}/rest/v1/waitlist`, {
     method: "POST",
-    headers: {
-      apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-      Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
-    },
+    headers,
     body: JSON.stringify({ email, source: "landing" }),
   });
 
