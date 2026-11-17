@@ -29,15 +29,21 @@ const FATHOM_SITE_ID = process.env.NEXT_PUBLIC_FATHOM_SITE_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Localwise: simple, actionable insights for your local shop",
+  title: "Localwise: actionable insights for your local small business",
   description:
     "No intrusive AI. You focus on your small business and Localwise brings you helpful reports along the way. Sign up before February 2027 and it's free for life.",
   openGraph: {
-    title: "Localwise: simple, actionable insights for your local shop",
+    title: "Localwise: actionable insights for your local small business",
     description:
       "No intrusive AI. You focus on your small business and Localwise brings you helpful reports along the way.",
     siteName: "Localwise",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Localwise: actionable insights for your local small business",
+    description:
+      "No intrusive AI. You focus on your small business and Localwise brings you helpful reports along the way.",
   },
 };
 
