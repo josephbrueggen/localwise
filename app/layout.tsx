@@ -24,8 +24,9 @@ const body = Atkinson_Hyperlegible_Next({
 // hosting dashboard once the address is known.
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-// Fathom Analytics site ID (public, not a secret). Empty = no analytics script.
-const FATHOM_SITE_ID = process.env.NEXT_PUBLIC_FATHOM_SITE_ID;
+// Fathom Analytics site ID (public, not a secret, safe in code). The env var
+// can override it; otherwise the live site uses the Localwise ID below.
+const FATHOM_SITE_ID = process.env.NEXT_PUBLIC_FATHOM_SITE_ID || "SBVEZWWM";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -54,12 +55,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${body.variable}`}>
-      <body>
-        {children}
-        {FATHOM_SITE_ID ? (
-          <script src="https://cdn.usefathom.com/script.js" data-site={FATHOM_SITE_ID} defer />
-        ) : null}
-      </body>
+      <head>
+        <script src="https://cdn.usefathom.com/script.js" data-site={FATHOM_SITE_ID} defer />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
