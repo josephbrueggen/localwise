@@ -8,6 +8,7 @@ out/
 .wrangler/
 .vercel/
 dist/
+storybook-static/
 
 # OS and logs
 .DS_Store
