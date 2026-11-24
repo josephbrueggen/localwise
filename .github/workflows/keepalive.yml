@@ -1,7 +1,5 @@
-# Keeps the free Supabase project awake (it pauses after about a week
-# without activity). Free for public repositories; uses no secrets.
-# It calls the site's /api/keepalive endpoint, which reads zero rows.
-name: Keep Supabase awake
+# Twice-weekly keep-awake ping for the site. Uses no secrets.
+name: Keep-awake ping
 
 on:
   schedule:

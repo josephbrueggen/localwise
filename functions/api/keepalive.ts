@@ -1,10 +1,6 @@
 /*
- * Cloudflare Pages Function: GET /api/keepalive
- *
- * Supabase pauses free projects after about a week without activity. A free
- * scheduled GitHub Action calls this twice a week. It runs a tiny read on the
- * waitlist table that returns zero rows, so no customer data is read, returned
- * or stored. The response only says whether the database answered.
+ * Keep-awake check: a tiny read that returns zero rows, so no customer data
+ * is read, returned or stored. The response only says whether it answered.
  */
 
 interface Env {

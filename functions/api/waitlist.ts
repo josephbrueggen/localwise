@@ -1,15 +1,6 @@
 /*
- * Cloudflare Pages Function: POST /api/waitlist
- *
- * Receives { email, token } from the landing page, checks the Turnstile
- * spam token, and inserts the email into the private Supabase `waitlist`
- * table using the server-only service key.
- *
- * Customer data rule (see CLAUDE.md): never log, echo or store the email
- * anywhere except the database. Errors return generic messages only.
- *
- * Secrets (set in Cloudflare Pages > Settings > Variables, never in code):
- *   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, TURNSTILE_SECRET_KEY
+ * Waitlist signup endpoint. Customer data rule: never log, echo or store the
+ * email anywhere except the database. Errors return generic messages only.
  */
 
 interface Env {
@@ -44,7 +35,7 @@ export async function onRequestPost({ request, env }: Ctx): Promise<Response> {
     return json({ status: "invalid" }, 400);
   }
 
-  // Spam check. Required whenever a Turnstile secret is configured.
+  // Spam check, when configured.
   if (env.TURNSTILE_SECRET_KEY) {
     const form = new FormData();
     form.append("secret", env.TURNSTILE_SECRET_KEY);
@@ -63,8 +54,7 @@ export async function onRequestPost({ request, env }: Ctx): Promise<Response> {
     return json({ status: "error" }, 500);
   }
 
-  // Works with both Supabase key styles: the newer "secret" keys (sb_secret_…)
-  // go in the apikey header only; legacy service_role JWTs also go in Authorization.
+  // Supports both key formats.
   const key = env.SUPABASE_SERVICE_ROLE_KEY;
   const headers: Record<string, string> = {
     apikey: key,

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 /*
  * Waitlist signup. Sends only the email (and a spam-check token) to our own
- * /api/waitlist endpoint, which stores it in the private database.
+ * signup endpoint.
  * Customer data rule: never log or store the email anywhere else here.
  */
 
@@ -31,7 +31,7 @@ export default function WaitlistForm() {
   const widgetRef = useRef<HTMLDivElement>(null);
   const widgetId = useRef<string | undefined>(undefined);
 
-  // Load Cloudflare Turnstile (free, privacy-friendly spam check) when configured.
+  // Load the spam check when configured.
   useEffect(() => {
     if (!TURNSTILE_SITE_KEY || !widgetRef.current) return;
     const render = () => {

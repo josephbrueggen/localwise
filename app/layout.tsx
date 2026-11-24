@@ -20,12 +20,10 @@ const body = Atkinson_Hyperlegible_Next({
   display: "swap",
 });
 
-// Public site address, used for share previews. Set NEXT_PUBLIC_SITE_URL in the
-// hosting dashboard once the address is known.
+// Public site address, used for share previews.
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-// Fathom Analytics site ID (public, not a secret, safe in code). The env var
-// can override it; otherwise the live site uses the Localwise ID below.
+// Fathom Analytics site ID (public; it appears in the page anyway).
 const FATHOM_SITE_ID = process.env.NEXT_PUBLIC_FATHOM_SITE_ID || "SBVEZWWM";
 
 export const metadata: Metadata = {
