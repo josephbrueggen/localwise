@@ -48,7 +48,7 @@ next-env.d.ts
 
 # Kept private on purpose (owner's choice, 2026-11-15): project notes, product
 # docs, AI tool setup and the parked homepage stay on the owner's machine only.
-README.md
+NOTES-private.md
 CLAUDE.md
 AGENTS.md
 PRODUCT.md
