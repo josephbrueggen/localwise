@@ -24,7 +24,7 @@ function fakeSignup(respond: Respond) {
     const realFetch = window.fetch;
     window.fetch = (input, init) => {
       const url = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
-      if (url.includes("/api/waitlist")) return respond();
+      if (url.includes("/signup")) return respond();
       return realFetch(input, init);
     };
     return () => {

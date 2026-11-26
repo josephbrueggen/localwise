@@ -12,6 +12,9 @@ type Status = "idle" | "sending" | "done" | "already" | "error";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
+// Public sign-up address. It only accepts requests from this site.
+const SIGNUP_URL = "https://localwise-backoffice.josephbrueggen.workers.dev/signup";
+
 declare global {
   interface Window {
     turnstile?: {
@@ -74,7 +77,7 @@ export default function WaitlistForm() {
           await new Promise((r) => setTimeout(r, 250));
         }
       }
-      const res = await fetch("/api/waitlist", {
+      const res = await fetch(SIGNUP_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: value, token: tokenRef.current }),
